@@ -31,8 +31,18 @@ public class HomePage extends BasePage {
 	@FindBy(css = "input[id='search']")
 	WebElement searchBox;
 
+	@FindBy(xpath = "//ytd-topbar-menu-button-renderer[2]//div[@id='waves']']")
+	WebElement settingsForGuestUser;
+
 	@FindBy(xpath = "//a[@rel='nofollow']//yt-formatted-string//text()[. = 'Sign in']")
 	WebElement signInButton;
+
+	@FindBy(xpath = "//button[@aria-label='YouTube apps']")
+	WebElement youtubeAppsButton;
+
+	@FindBy(xpath = "//button[@aria-label='Upload']")
+
+	WebElement uploadButton;
 
 	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Home']")
 	WebElement homeLink;
@@ -83,8 +93,9 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//button[@id='avatar-btn']//img[@id='img']")
 	WebElement avatarButton;
 
+	@FindBy(xpath = "//button[@aria-label='Notifications']")
 
-
+	WebElement notificationsButton;
 
 
 	public void openHomePage(String URL) {
@@ -109,6 +120,17 @@ public class HomePage extends BasePage {
 		signInButton.click();
 	}
 
+	public void clickOnYoutubeAppsButton(){
+
+		youtubeAppsButton.click();
+
+	}
+
+	public void clickOnUploadButton(){
+		uploadButton.click();
+
+	}
+
 	public void clickOnGuideIcon(){
 		guideIcon.click();
 	}
@@ -126,5 +148,18 @@ public class HomePage extends BasePage {
 		settingsLink.click();
 
 	}
+
+	//After Login
+
+	public void clickOnAvatarButton(){
+		avatarButton.click();
+	}
+
+	public void clickOnNotificationsButton(){
+
+		notificationsButton.click();
+
+	}
+
 
 }
