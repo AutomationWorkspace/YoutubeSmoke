@@ -77,6 +77,12 @@ public class HomePage extends BasePage {
 	WebElement signInLink;
 
 
+	//After Login
+
+
+	@FindBy(xpath = "//button[@id='avatar-btn']//img[@id='img']")
+	WebElement avatarButton;
+
 
 
 
