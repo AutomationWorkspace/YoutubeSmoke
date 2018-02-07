@@ -27,75 +27,98 @@ public class HomePage extends BasePage {
 
 	@FindBy(css="button[id='search-icon-legacy']")
 	WebElement searchIcon;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(css = "input[id='search']")
 	WebElement searchBox;
-		
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//a[@rel='nofollow']//yt-formatted-string//text()[. = 'Sign in']")
 	WebElement signInButton;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Home']")
 	WebElement homeLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Trending']")
 	WebElement trendingLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'History']")
 	WebElement historyLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Music']")
 	WebElement musicLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Sports']")
 	WebElement sportsLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Gaming']")
 	WebElement 	gamingLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'News']")
 	WebElement moviesLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Live']")
 	WebElement newsLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//span[contains(text(), '360')]")
 	WebElement threeHundredSixtyLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//span//text()[. = 'Browse channels']")
 	WebElement browseChannelsLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Settings']")
 	WebElement settingsLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Help']")
 	WebElement helpLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//span[contains(text(),'feedback')]")
 	WebElement sendFeedbackLink;
-	
-	@FindBy(xpath = "")
+
+	@FindBy(xpath = "//div[@id='guide-content']//a[@is='yt-endpoint']//text()[. = 'Sign in']")
 	WebElement signInLink;
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	public void openHomePage(String URL) {
 		driver.get(URL);
 
 	}
-	
+
 	public void searchInputKeyWord(String keyWord)
 	{
-		
+
 		searchInput.sendKeys(keyWord);
 	}
-	
+
 	public void clickOnSearchButton()
 	{
-		
+
 		searchIcon.click();
+	}
+
+	public void clickOnSignInButton(){
+
+		signInButton.click();
+	}
+
+	public void clickOnGuideIcon(){
+		guideIcon.click();
+	}
+
+	public void clickOnSignInLink(){
+
+		clickOnGuideIcon();
+		signInLink.click();
+
+	}
+
+	public void clickOnSettingsLink(){
+
+		clickOnGuideIcon();
+		settingsLink.click();
+
 	}
 
 }
