@@ -13,11 +13,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 
-public class TestBase {
+public abstract class TestBase {
 	WebDriver driver;
 	WebDriverWait wait;
 
-	@BeforeMethod
+	@BeforeClass
 	public void beforeClass() {
 
 		System.setProperty("webdriver.chrome.driver",
@@ -32,7 +32,7 @@ public class TestBase {
 
 	}
 
-	@AfterMethod
+	@AfterClass
 	public void afterClass() {
 
 		driver.close();
