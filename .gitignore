@@ -1,2 +1,12 @@
 .classpath
 .settings/org.eclipse.jdt.core.prefs
+.project
+lib/*
+bin/*
+bin/*/*
+bin/*/*/*
+test-output/*
+test-output/*/*
+test-output/*/*/*
+webdrivers/*
+.settings/*
