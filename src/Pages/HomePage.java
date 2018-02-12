@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,7 +35,7 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//ytd-topbar-menu-button-renderer[2]//div[@id='waves']']")
 	WebElement settingsForGuestUser;
 
-	@FindBy(xpath = "//a[@rel='nofollow']//yt-formatted-string//text()[. = 'Sign in']")
+	@FindBy(xpath = "(//a[@rel='nofollow'] //yt-formatted-string)[1]")
 	WebElement signInButton;
 
 	@FindBy(xpath = "//button[@aria-label='YouTube apps']")
@@ -44,46 +45,46 @@ public class HomePage extends BasePage {
 
 	WebElement uploadButton;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Home']")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[1]")
 	WebElement homeLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Trending']")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[2]")
 	WebElement trendingLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'History']")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[3]")
 	WebElement historyLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Music']")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[4]")
 	WebElement musicLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Sports']")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[5]")
 	WebElement sportsLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Gaming']")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[6]")
 	WebElement 	gamingLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'News']")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[7]")
 	WebElement moviesLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Live']")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[8]")
 	WebElement newsLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//span[contains(text(), '360')]")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[9]")
 	WebElement threeHundredSixtyLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//span//text()[. = 'Browse channels']")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[10]")
 	WebElement browseChannelsLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Settings']")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[11]")
 	WebElement settingsLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//text()[. = 'Help']")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[12]")
 	WebElement helpLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@id='endpoint']//span[contains(text(),'feedback')]")
+	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[13]")
 	WebElement sendFeedbackLink;
 
-	@FindBy(xpath = "//div[@id='guide-content']//a[@is='yt-endpoint']//text()[. = 'Sign in']")
+	@FindBy(xpath = "//div[@id='guide-content']//a[@is='yt-endpoint']")
 	WebElement signInLink;
 
 
@@ -133,6 +134,7 @@ public class HomePage extends BasePage {
 	public void clickOnGuideIcon(){
 		guideIcon.click();
 	}
+	
 
 	public void clickOnSignInLink(){
 
@@ -146,6 +148,22 @@ public class HomePage extends BasePage {
 		clickOnGuideIcon();
 		settingsLink.click();
 
+	}
+	
+	public boolean isElementExist() {
+		
+	if((driver.findElements(By.cssSelector("")).size() != 0)) {
+			
+		return true;
+			
+		}
+	else if(driver.findElements(By.cssSelector("")).size() == 0) {
+			return false;
+	}
+	else {
+	return false;
+	
+	}
 	}
 
 	//After Login
