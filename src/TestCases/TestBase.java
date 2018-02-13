@@ -21,7 +21,7 @@ public abstract class TestBase {
 	public void beforeClass() {
 
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Oguzhan\\Desktop\\Youtube\\webdrivers\\chromedriver.exe");
+				"C:\\Users\\Erdogan\\Desktop\\Youtube Test\\YoutubeSmoke\\webdrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
