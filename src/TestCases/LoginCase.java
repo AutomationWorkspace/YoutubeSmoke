@@ -11,15 +11,18 @@ import org.testng.annotations.AfterMethod;
 
 public class LoginCase extends TestBase {
 	HomePage homePage;
-	//LoginPage loginPage;
+	LoginPage loginPage;
 	
   @Test
   public void f() {
 	  homePage.openHomePage("http://youtube.com");
-	  
+	  homePage.clickOnSignInButton();
+	  loginPage.waitLoginPage();
+	  loginPage.enterEmailorPhone("webdriverpumpteam");
   }
   @BeforeMethod
   public void beforeMethod() {
+	  loginPage= new LoginPage(driver,wait);
 	  homePage = new HomePage(driver,wait);
   }
 
