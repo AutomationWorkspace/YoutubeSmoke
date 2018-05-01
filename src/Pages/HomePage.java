@@ -28,7 +28,7 @@ public class HomePage extends BasePage {
 	@FindBy(css = "input[id='search']")
 	WebElement searchInput;
 
-	@FindBy(css="button[id='search-icon-legacy']")
+	@FindBy(css = "button[id='search-icon-legacy']")
 	WebElement searchIcon;
 
 	@FindBy(css = "input[id='search']")
@@ -63,7 +63,7 @@ public class HomePage extends BasePage {
 	WebElement sportsLink;
 
 	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[6]")
-	WebElement 	gamingLink;
+	WebElement gamingLink;
 
 	@FindBy(xpath = "(//div[@id='guide-content']//a[@id='endpoint'])[7]")
 	WebElement moviesLink;
@@ -89,98 +89,102 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//div[@id='guide-content']//a[@is='yt-endpoint']")
 	WebElement signInLink;
 
-
-	//After Login
+	// After Login
 
 	@FindBy(xpath = "//button[@id='avatar-btn']//img[@id='img']")
 	WebElement avatarButton;
+	
+	@FindBy(xpath="//div[@id='container'][@class='menu-container style-scope ytd-multi-page-menu-renderer']//ytd-compact-link-renderer[4]")
+	WebElement signOut;
 
 	@FindBy(xpath = "//button[@aria-label='Notifications']")
 
 	WebElement notificationsButton;
 
+	public void waitForLoad() {
+		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+
+	}
 
 	public void openHomePage(String URL) {
 		driver.get(URL);
 		waitForLoad();
 	}
 
-	public void searchInputKeyWord(String keyWord)
-	{
+	public void searchInputKeyWord(String keyWord) {
 
 		searchInput.sendKeys(keyWord);
 	}
 
-	public void clickOnSearchButton()
-	{
+	public void clickOnSearchButton() {
 
 		searchIcon.click();
 	}
 
-	public void clickOnSignInButton(){
+	public void clickOnSignInButton() {
 
 		signInButton.click();
 		waitForLoad();
 	}
 
-	public void clickOnYoutubeAppsButton(){
+	public void clickOnYoutubeAppsButton() {
 
 		youtubeAppsButton.click();
 
 	}
 
-	public void clickOnUploadButton(){
+	public void clickOnUploadButton() {
 		uploadButton.click();
 
 	}
 
-	public void clickOnGuideIcon(){
+	public void clickOnGuideIcon() {
 		guideIcon.click();
 	}
-	
 
-	public void clickOnSignInLink(){
+	public void clickOnSignInLink() {
 
 		clickOnGuideIcon();
 		signInLink.click();
 
 	}
 
-	public void clickOnSettingsLink(){
+	public void clickOnSettingsLink() {
 
 		clickOnGuideIcon();
 		settingsLink.click();
 
 	}
-	
+
 	public boolean isElementExist() {
-		
-	if((driver.findElements(By.cssSelector("")).size() != 0)) {
-			
-		return true;
-			
-		}
-	else if(driver.findElements(By.cssSelector("")).size() == 0) {
+
+		if ((driver.findElements(By.cssSelector("")).size() != 0)) {
+
+			return true;
+
+		} else if (driver.findElements(By.cssSelector("")).size() == 0) {
 			return false;
-	}
-	else {
-	return false;
-	
-	}
+		} else {
+			return false;
+
+		}
 	}
 
-	//After Login
+	// After Login
 
-	public void clickOnAvatarButton(){
+	public void clickOnAvatarButton() {
 		avatarButton.click();
 	}
 
-	public void clickOnNotificationsButton(){
+	public void clickOnNotificationsButton() {
 
 		notificationsButton.click();
 
 	}
 	
-
+	public void clickOnSignOutOption() throws InterruptedException {
+		Thread.sleep(200);
+		signInButton.click();
+	}
 
 }
