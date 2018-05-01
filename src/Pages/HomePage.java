@@ -1,5 +1,7 @@
 package Pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,7 +37,7 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//ytd-topbar-menu-button-renderer[2]//div[@id='waves']']")
 	WebElement settingsForGuestUser;
 
-	@FindBy(xpath = "(//a[@rel='nofollow'] //yt-formatted-string)[1]")
+	@FindBy(xpath = "//div[@id='end']//div[@id='buttons']//ytd-button-renderer//a")
 	WebElement signInButton;
 
 	@FindBy(xpath = "//button[@aria-label='YouTube apps']")
@@ -100,7 +102,7 @@ public class HomePage extends BasePage {
 
 	public void openHomePage(String URL) {
 		driver.get(URL);
-
+		waitForLoad();
 	}
 
 	public void searchInputKeyWord(String keyWord)
@@ -118,6 +120,7 @@ public class HomePage extends BasePage {
 	public void clickOnSignInButton(){
 
 		signInButton.click();
+		waitForLoad();
 	}
 
 	public void clickOnYoutubeAppsButton(){
@@ -177,6 +180,7 @@ public class HomePage extends BasePage {
 		notificationsButton.click();
 
 	}
+	
 
 
 }

@@ -1,5 +1,7 @@
 package Pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -16,5 +18,10 @@ public  abstract class BasePage {
         PageFactory.initElements(driver, this);
 
 	}
+	
+	public void waitForLoad() {
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	
+}
 	
 }

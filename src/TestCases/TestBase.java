@@ -21,21 +21,22 @@ public abstract class TestBase {
 	public void beforeClass() {
 
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Oguzhan\\Desktop\\Youtube\\webdrivers\\chromedriver.exe");
+				"webdrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
 	}
 
 	@Test
-	public void f() {
+	public void f() throws InterruptedException {
 
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 
-		driver.close();
+		driver.quit();
+		
 	}
 
 }

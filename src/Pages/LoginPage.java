@@ -1,5 +1,7 @@
 package Pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,7 +21,7 @@ public class LoginPage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 
-	@FindBy(xpath = "(//input[@type='email']")
+	@FindBy(xpath = "//input[@type='email']")
 	WebElement getEmail_phone;
 
 	@FindBy(css = "button[type='button'][jsname='Cuz2Ue']")
@@ -34,5 +36,19 @@ public class LoginPage extends BasePage {
 	@FindBy(css = "a[href='https://support.google.com/accounts?hl=en'][target='_blank']")
 	WebElement Help;
 	
+
+	public void enterEmailPhone(String value) throws InterruptedException {
+		getEmail_phone.click();
+		TimeUnit.SECONDS.sleep(1000);
+		getEmail_phone.sendKeys(value);
+
+	}
+	
+	public void clickOnNext() {
+		
+		Next.click();
+		waitForLoad();
+		
+	}
 	
 }
